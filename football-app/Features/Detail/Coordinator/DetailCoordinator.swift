@@ -18,7 +18,7 @@ class DetailCoordinator: BaseCoordinator {
     override func start() {
         setupBinding()
         
-        let detail = TeamDetailVC()
+        let detail = TeamDetailVC(viewModel: viewModel)
         detail.viewModel = viewModel
         detail.data = data
         navigationController.present(detail, animated: true)

@@ -12,8 +12,18 @@ class TeamDetailVC: UIViewController {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var desc: UILabel!
-    var viewModel: TeamDetailViewModel!
+    
+    var viewModel: TeamDetailViewModel
     var data: TeamModel?
+    
+    init(viewModel: TeamDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,8 +10,17 @@ import UIKit
 
 class HomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: HomeViewModel!
+    var viewModel: HomeViewModel
     private var data: [TeamModel] = []
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +30,13 @@ class HomeVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        viewModel.viewDidDisappear.accept?(())
+        //viewModel.viewDidDisappear.accept?(())
     }
 }
 
 extension HomeVC {
     private func setupUI() {
-        let me = UIBarButtonItem(title: "Me", style: .done, target: self, action: #selector(aboutClicked))
+        let me = UIBarButtonItem(title: "Sobre", style: .done, target: self, action: #selector(aboutClicked))
         navigationItem.title = "Home"
         navigationItem.rightBarButtonItem = me
         navigationController?.navigationBar.barTintColor = .white

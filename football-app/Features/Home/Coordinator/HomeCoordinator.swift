@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class HomeCoordinator: BaseCoordinator {
-    private var viewModel: HomeViewModel!
+    private var viewModel: HomeViewModel = HomeViewModel(repository: DataRepository())
     
     override func start() {
         setupData()
         setupBinding()
-        
-        let homeVC = HomeVC()
+
+        let homeVC = HomeVC(viewModel: viewModel)
         homeVC.viewModel = viewModel
         self.navigationController = UINavigationController(rootViewController: homeVC)
         self.navigationController.viewControllers = [homeVC]

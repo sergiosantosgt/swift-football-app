@@ -13,7 +13,7 @@ class AboutCoordinator: BaseCoordinator {
     override func start() {
         setupBinding()
         
-        let about = AboutVC()
+        let about = AboutVC(viewModel: viewModel)
         about.viewModel = viewModel
         navigationController.pushViewController(about, animated: true)
     }
